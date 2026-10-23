@@ -614,21 +614,12 @@
                             juntos.</p>
                     </div>
                     <div class="max-w-2xl mx-auto fade-in-section">
-                        <!-- 
-                          FORMULÁRIO ATUALIZADO PARA USAR O FORMSUBMIT.CO
-                          - O atributo 'action' agora aponta para o serviço do FormSubmit.
-                          - Lembre-se de substituir 'zenithlabs.contato@gmail.com' pelo seu e-mail real de recebimento.
-                          - Após o primeiro envio, você precisará ativar o formulário através de um link enviado para seu e-mail.
-                        -->
-                        <form action="https://formsubmit.co/zenithlabs.contato@gmail.com" method="POST"
-                            class="space-y-6">
+                        <!-- O envio é feito pelo contato.js para o web app do Google Apps Script. -->
+                        <form id="contato-form" method="POST" class="space-y-6">
 
-                            <!-- Este campo redireciona o usuário para sua página de obrigado personalizada após o envio. -->
-                            <input type="hidden" name="_next" value="https://www.zenithlabs.com.br/obrigado.html">
-
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_subject" value="Novo contato pelo site - Zenith Labs">
-                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_t">
+                            <input type="hidden" name="_s">
+                            <input type="hidden" name="_origem">
                             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
                             <div>
@@ -656,6 +647,8 @@
                                 <button type="submit"
                                     class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform hover:scale-105 duration-300">Enviar
                                     Mensagem</button>
+                                <p id="contato-erro" role="alert" class="hidden mt-4 text-sm text-red-300">Não foi possível
+                                    enviar agora. Tente de novo ou fale com a gente pelo WhatsApp.</p>
                                 <p class="mt-4 text-sm text-slate-400">Ao enviar, você confirma que leu a <a
                                         href="politica-de-privacidade.html"
                                         class="text-blue-400 hover:text-blue-300 transition-colors">Política de Privacidade</a>,
@@ -1211,6 +1204,7 @@
             });
         });
     </script>
+    <script src="contato.js"></script>
 </body>
 
 </html>
